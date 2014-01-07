@@ -9,17 +9,19 @@ number = 0
 prev_input = 0
 
 continue = True
+print number
 while (continue):
-	print number
 	input = GPIO.input(23)
 	if((not prev_input) and input):
 		number += 1
+		print number
 		prev_input = input
 		sleep(0.05)
 		continue
 	input = GPIO.input(24)
 	if((not prev_input) and input):
 		number -= 1
+		print number
 		prev_input = input
 		sleep(0.05)
 		continue
@@ -29,3 +31,4 @@ while (continue):
 		prev_input = input
 		sleep(0.05)
 		continue
+print "End with number at " + str(number)
