@@ -8,27 +8,24 @@ GPIO.setup(25, GPIO.IN)
 number = 0
 prev_input = 0
 
-continue = True
+loop = True
 print number
-while (continue):
-	input = GPIO.input(23)
-	if((not prev_input) and input):
+while (loop):
+	if(GPIO.input(23) == True):
 		number += 1
 		print number
 		prev_input = input
-		sleep(0.05)
+		sleep(0.5)
 		continue
-	input = GPIO.input(24)
-	if((not prev_input) and input):
+	if(GPIO.input(24) == True):
 		number -= 1
 		print number
 		prev_input = input
-		sleep(0.05)
+		sleep(0.5)
 		continue
-	input = GPIO.input(25)
-	if((not prev_input) and input):
-		continue = False
+	if(GPIO.input(25) == True):
+		loop = False
 		prev_input = input
-		sleep(0.05)
+		sleep(0.5)
 		continue
 print "End with number at " + str(number)
