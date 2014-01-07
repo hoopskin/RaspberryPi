@@ -8,7 +8,9 @@ GPIO.setup(25, GPIO.IN)
 number = 0
 prev_input = 0
 
-while (True):
+continue = True
+while (continue):
+	print number
 	input = GPIO.input(23)
 	if((not prev_input) and input):
 		number += 1
@@ -23,7 +25,7 @@ while (True):
 		continue
 	input = GPIO.input(25)
 	if((not prev_input) and input):
-		print number
+		continue = False
 		prev_input = input
 		sleep(0.05)
 		continue
